@@ -1,4 +1,4 @@
-Padroes obrigatorios: Template, Strategy(politicaPontuacao), Factory
+Padroes obrigatorios: Template(pergunta classe abstrata), Strategy(politicaPontuacao), Factory(perguntaFactory)
 
 Davi Sendin
 

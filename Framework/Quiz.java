@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +20,15 @@ public class Quiz {
         perguntaAtual = perguntas.get(indicePerguntaAtual);
     }
 
-    public void responde(int resposta, int tempo) {
+    public void responde(int resposta) {
+        Duration tempo = perguntaAtual.tempo();
         if (resposta == perguntaAtual.getAlternativaCorreta()) {
             acertos++;
             pontos += politicaPontuacao.acertou(tempo);
         } else {
             pontos += politicaPontuacao.errou(tempo);
         }
+        //TODO trocar de pergunta
     }
 
     public String fimQuiz() {
