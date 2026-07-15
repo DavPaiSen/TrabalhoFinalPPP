@@ -2,8 +2,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-
-//testando a branch
 public class Quiz {
     private List<Pergunta> perguntas;
     private int pontos;
@@ -28,7 +26,8 @@ public class Quiz {
         } else {
             pontos += politicaPontuacao.errou(tempo);
         }
-        //TODO trocar de pergunta
+        indicePerguntaAtual++;
+        perguntaAtual = perguntas.get(indicePerguntaAtual);
     }
 
     public String fimQuiz() {
