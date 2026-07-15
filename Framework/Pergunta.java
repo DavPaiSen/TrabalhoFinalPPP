@@ -1,6 +1,7 @@
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.time.Instant;
 
 public abstract class Pergunta { //template
     protected String enunciado;
@@ -28,6 +29,8 @@ public abstract class Pergunta { //template
         this.enunciado = enunciado;
         this.alternativas = alternativas;
         this.alternativaCorreta = alternativaCorreta;
+        this.inicio = Instant.now();
+
     }
 
     

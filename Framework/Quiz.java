@@ -1,10 +1,9 @@
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-public class Quiz {
+public class Quiz implements Apresentavel{
     private List<Pergunta> perguntas;
     private int pontos;
     private int acertos;
@@ -12,14 +11,16 @@ public class Quiz {
     private Pergunta perguntaAtual;
     private PoliticaPontuacao politicaPontuacao;//stategy
 
-    public Quiz (int qtdGanha, int qtdPerde, PoliticaPontuacao politicaPontuacao) {
-        perguntas = new ArrayList<>();
+    public Quiz(List<Pergunta> perguntas, PoliticaPontuacao politicaPontuacao) {
+        this.perguntas = perguntas;
+        this.politicaPontuacao = politicaPontuacao;
+
         pontos = 0;
         indicePerguntaAtual = 0;
         acertos = 0;
+
         perguntaAtual = perguntas.get(indicePerguntaAtual);
     }
-
     public void responde(int resposta) {
         Duration tempo = perguntaAtual.tempo();
         if (resposta == perguntaAtual.getAlternativaCorreta()) {
@@ -28,7 +29,11 @@ public class Quiz {
         } else {
             pontos += politicaPontuacao.errou(tempo);
         }
-        //TODO trocar de pergunta
+        indicePerguntaAtual++;
+
+        if (indicePerguntaAtual < perguntas.size()) {
+            perguntaAtual = perguntas.get(indicePerguntaAtual);
+        }
     }
 
     public String fimQuiz() {
@@ -37,5 +42,21 @@ public class Quiz {
 
     public Pergunta perguntaAtual() {
         return perguntas.get(indicePerguntaAtual);
+    }
+
+    public String getEnunciado() {
+        return perguntaAtual.getEnunciado();
+    }
+
+    public List<String> getAlternativas() {
+        return perguntaAtual.getAtlternativas();
+    }
+
+    public int getNumeroQuestao() {
+        return indicePerguntaAtual + 1;
+    }
+
+    public int tamanho() {
+        return perguntas.size();
     }
 }
