@@ -2,7 +2,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Quiz {
+public class Quiz implements Apresentavel{
     private List<Pergunta> perguntas;
     private int pontos;
     private int acertos;
@@ -36,5 +36,13 @@ public class Quiz {
 
     public Pergunta perguntaAtual() {
         return perguntas.get(indicePerguntaAtual);
+    }
+
+    public String getEnunciado() {
+        return perguntaAtual.getEnunciado();
+    }
+
+    public List<String> getAlternativas() {
+        return perguntaAtual.getAtlternativas();
     }
 }
