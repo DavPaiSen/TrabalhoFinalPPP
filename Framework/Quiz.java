@@ -1,3 +1,5 @@
+package Framework;
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,5 +46,13 @@ public class Quiz implements Apresentavel{
 
     public List<String> getAlternativas() {
         return perguntaAtual.getAtlternativas();
+    }
+
+    public int getNumeroQuestao() {
+        return indicePerguntaAtual + 1;
+    }
+
+    public int tamanho() {
+        return perguntas.size();
     }
 }
