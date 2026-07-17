@@ -1,5 +1,8 @@
+package Aplicacao;
+
 import javax.swing.*;
 import java.util.List;
+import Framework.*;
 
 public class InterfaceGrafica extends JFrame {
 
