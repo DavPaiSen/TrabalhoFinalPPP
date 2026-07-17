@@ -17,4 +17,9 @@ public class PontuacaoMaxTempo implements PoliticaPontuacao{
     public int errou(Duration tempo) {
         return auxiliar.errou(tempo);
     }
+
+    public PontuacaoMaxTempo(Duration tempoMaximo, PoliticaPontuacao auxiliar) {
+        this.tempoMaximo = tempoMaximo;
+        this.auxiliar = auxiliar;
+    }
 }

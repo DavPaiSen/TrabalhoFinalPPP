@@ -3,3 +3,5 @@ Padroes obrigatorios: Template(pergunta classe abstrata), Strategy(politicaPontu
 Davi Sendin
 
 Julia Yasmin
+
+criar um singleton para console e interfaceGrafica????

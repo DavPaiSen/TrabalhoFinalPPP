@@ -7,7 +7,7 @@ public interface Apresentavel {
     
     public List<String> getAlternativas();
 
-    public void responde (int resposta);
+    public boolean responde (int resposta);
 
     public String fimQuiz();
 

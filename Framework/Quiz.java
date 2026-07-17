@@ -1,7 +1,6 @@
 package Framework;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Quiz implements Apresentavel{
@@ -22,12 +21,15 @@ public class Quiz implements Apresentavel{
 
         perguntaAtual = perguntas.get(indicePerguntaAtual);
     }
-    public void responde(int resposta) {
+    public boolean responde(int resposta) {
         Duration tempo = perguntaAtual.tempo();
+        boolean acertou;
         if (resposta == perguntaAtual.getAlternativaCorreta()) {
             acertos++;
+            acertou = true;
             pontos += politicaPontuacao.acertou(tempo);
         } else {
+            acertou = false;
             pontos += politicaPontuacao.errou(tempo);
         }
         indicePerguntaAtual++;
@@ -35,10 +37,12 @@ public class Quiz implements Apresentavel{
         if (indicePerguntaAtual < perguntas.size()) {
             perguntaAtual = perguntas.get(indicePerguntaAtual);
         }
+
+        return acertou;
     }
 
     public String fimQuiz() {
-        return ("Total de acertos: " + acertos + "\nTotal de erros: " + (perguntas.size() - acertos) + "\nPontuacao final: " + pontos);
+        return ("Total de acertos: " + acertos + "\nTotal de erros: " + (perguntas.size() - acertos) + "\nPontuacao final: " + pontos + "\nPorcentagem de acertos: " + ((float)acertos/perguntas.size()));
     }
 
     public Pergunta perguntaAtual() {

@@ -12,7 +12,7 @@ public class Console {
         Scanner scanner = new Scanner(System.in);
 
         while (quiz.getNumeroQuestao() < quiz.tamanho()) {
-            System.out.println("Questao " + quiz.getNumeroQuestao() + 1);
+            System.out.println("Questao " + quiz.getNumeroQuestao());
             System.out.println(quiz.getEnunciado());
             List<String> alternativas = quiz.getAlternativas();
 
@@ -21,10 +21,30 @@ public class Console {
             }
 
             System.out.println("Insira a resposta: ");
-            quiz.responde(Integer.parseInt(scanner.nextLine())); //TODO tem que tratar o erro de nao ser um numero digitado
+            boolean valido = false;
+            int resposta = 0;
+            while (!valido) {
+                try {
+                    resposta = Integer.parseInt(scanner.nextLine());
+                    valido = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Digite apenas numeros, por favor");
+                }
+            }
+            
+            if (quiz.responde(resposta)) {
+                System.out.println("Correto!");
+            } else {
+                System.out.println("Incorreto!");
+            }
+
+            System.out.println();
         }
         scanner.close();
-        System.out.println(quiz.fimQuiz());
-        
+        System.out.println(quiz.fimQuiz());        
     }    
+
+    public Console(Apresentavel quiz) {
+        this.quiz = quiz;        
+    }
 }

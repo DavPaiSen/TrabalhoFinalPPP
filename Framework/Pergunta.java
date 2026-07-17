@@ -3,7 +3,6 @@ package Framework;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
-import java.time.Instant;
 
 public abstract class Pergunta { //template
     protected String enunciado;

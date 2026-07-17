@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Framework.*;
 
-public class QuizConhecimentosGerais {
+public class QuizConhecimentosGerais extends Quiz{
 
     public static List<Pergunta> criarPerguntas() {
 
@@ -147,5 +147,9 @@ public class QuizConhecimentosGerais {
         );
 
         return perguntas;
+    }
+
+    public QuizConhecimentosGerais(PoliticaPontuacao politicaPontuacao) {
+        super(criarPerguntas(), politicaPontuacao);
     }
 }
