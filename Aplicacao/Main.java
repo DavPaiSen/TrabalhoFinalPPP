@@ -7,5 +7,8 @@ public class Main {
         QuizConhecimentosGerais quizConhecimentosGerais = new QuizConhecimentosGerais(PoliticaSingleton.getPadrao());
         Console console = new Console(quizConhecimentosGerais);
         console.apresentar();
+        QuizProgramacao quizProgramacao = new QuizProgramacao(PoliticaSingleton.getPenalizar());
+        InterfaceGrafica interfaceGrafica = new InterfaceGrafica(quizProgramacao);
+        interfaceGrafica.setVisible(true);
     }
 }
