@@ -1,3 +1,5 @@
+package Framework;
+
 import java.util.List;
 
 public class VerdadeiroOuFalso extends Pergunta{

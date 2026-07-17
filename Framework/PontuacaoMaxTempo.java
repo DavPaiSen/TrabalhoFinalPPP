@@ -1,3 +1,5 @@
+package Framework;
+
 import java.time.Duration;
 
 public class PontuacaoMaxTempo implements PoliticaPontuacao{
