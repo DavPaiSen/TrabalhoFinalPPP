@@ -12,14 +12,16 @@ public class Quiz implements Apresentavel{
     private Pergunta perguntaAtual;
     private PoliticaPontuacao politicaPontuacao;//stategy
 
-    public Quiz (int qtdGanha, int qtdPerde, PoliticaPontuacao politicaPontuacao) {
-        perguntas = new ArrayList<>();
+    public Quiz(List<Pergunta> perguntas, PoliticaPontuacao politicaPontuacao) {
+        this.perguntas = perguntas;
+        this.politicaPontuacao = politicaPontuacao;
+
         pontos = 0;
         indicePerguntaAtual = 0;
         acertos = 0;
+
         perguntaAtual = perguntas.get(indicePerguntaAtual);
     }
-
     public void responde(int resposta) {
         Duration tempo = perguntaAtual.tempo();
         if (resposta == perguntaAtual.getAlternativaCorreta()) {
@@ -29,7 +31,10 @@ public class Quiz implements Apresentavel{
             pontos += politicaPontuacao.errou(tempo);
         }
         indicePerguntaAtual++;
-        perguntaAtual = perguntas.get(indicePerguntaAtual);
+
+        if (indicePerguntaAtual < perguntas.size()) {
+            perguntaAtual = perguntas.get(indicePerguntaAtual);
+        }
     }
 
     public String fimQuiz() {
